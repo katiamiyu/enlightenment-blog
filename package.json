@@ -1,0 +1,26 @@
+{
+  "name": "enlightenment-blog",
+  "version": "1.0.0",
+  "description": "idea bank",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katiamiyu/enlightment-blog.git"
+  },
+  "author": "katiamiyu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/katiamiyu/enlightment-blog/issues"
+  },
+  "homepage": "https://github.com/katiamiyu/enlightment-blog#readme",
+  "devDependencies": {
+    "eslint": "^9.9.1",
+    "globals": "^15.9.0"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
