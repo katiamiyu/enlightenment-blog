@@ -17,8 +17,7 @@
   },
   "homepage": "https://github.com/katiamiyu/enlightment-blog#readme",
   "devDependencies": {
-    "eslint": "^9.9.1",
-    "globals": "^15.9.0"
+    "eslint": "^9.9.1"
   },
   "dependencies": {
     "express": "^4.19.2"
