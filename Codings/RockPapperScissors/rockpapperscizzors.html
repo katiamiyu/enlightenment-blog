@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Game: 1</title>
+</head>
+<body>
+  <button>ROCK</button>
+  <button>PAPPER</button>
+  <button>SCIZZORS</button>
+  
+  <script type="module">
+    import { printScore, updateScore} from "./utilities.js"
+    let score = { win: 0, lose: 0, tie: 0 }
+    
+    const buttons = document.getElementsByTagName('button');
+    const availableChoice = ['ROCK', 'PAPPER', 'SCIZZORS'];
+    
+    let userChoice = '';
+    let compChoice = '';
+    
+    for (let x = 0; x < 3; x++) {
+      buttons[x].addEventListener("click", function() {
+        userChoice = availableChoice[x];
+        let num = Math.floor(Math.random() * 3);
+        compChoice = availableChoice[num];
+        
+        let result = '';
+      
+        if (userChoice === compChoice){
+          result = 'YOU HAVE A TIE';
+        } else if (userChoice === 'PAPPER' && compChoice === 'ROCK') {
+          result = 'YOU WIN';
+        } else if (userChoice === 'SCIZZORS' && compChoice === 'PAPPER') {
+          result = 'YOU WIN';
+        } else if (userChoice === 'ROCK' && compChoice === 'SCIZZORS') {
+          result = 'YOU WIN';
+        } else {
+          result = 'YOU LOSE';
+        }
+        score = updateScore(result, score);
+        printScore(result, score, userChoice, compChoice)
+      });
+    }
+  </script>
+</body>
+</html>

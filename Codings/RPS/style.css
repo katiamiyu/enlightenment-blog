@@ -1,0 +1,77 @@
+body {
+  background-color: grey;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 350px;
+  padding: 30px 10px;
+  margin: 70px auto;
+  gap: 10px;
+  background-color: white;
+  border-radius: 20px;
+}
+.rtside {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  border-radius: 10px;
+}
+.ltside {
+  flex: 2;
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  align-content: flex-start;
+  justify-content: space-between;
+  background-color: yellow;
+  border-radius: 10px;
+}
+.record {
+  flex: 2;
+  padding-left: 10px;
+}
+.verdict {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding-left: 10px;
+  border-top: 3px solid white;
+}
+button {
+  padding: 20px 0;
+  display: block;
+  border-radius: 10px;
+  border-style: none;
+  cursor: pointer;
+}
+button:hover {
+  font-weight: bold;
+}
+p {
+  font-family: Arial;
+  font-weight: bold;
+  color: blue;
+}
+.verdict p {
+  flex: 2;
+}
+.css-rock {
+  background-color: pink;
+}
+.css-paper {
+  background-color: blue;
+}
+.css-scizzors {
+  background-color: green;
+}
+.css-reset {
+  flex: 1;
+  border-radius: 0 10px 10px 0;
+  background-color: red;
+}
