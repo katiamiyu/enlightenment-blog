@@ -16,7 +16,7 @@ const app = http.createServer((req, res)=>{
     res.end();
   }
   else if (req.url === '/app.js'){
-    res.writeHead(200, { 'Content-Type': 'text/js' });
+    res.writeHead(200, { 'Content-Type': 'text/javascript' });
     res.write(readjsStream);
     res.end();
   }
