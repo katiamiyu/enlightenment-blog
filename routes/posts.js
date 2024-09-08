@@ -16,5 +16,5 @@ router.put("/:id", updatePostById);
 // remove post record from posts
 router.delete("/:id", deletePost);
 
-module.exports = posts;
+module.exports = router;
 
