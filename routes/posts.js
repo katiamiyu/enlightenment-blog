@@ -1,20 +1,20 @@
-const posts = require('express').Router();
-const {getPosts, getPostById, updatePostById, putPost, deletePost} = require('../controllers/posts');
+const router = require('express').Router();
+const {getPosts, getPostById, updatePostById, createPost, deletePost} = require('../controllers/posts');
 
 // get all posts
-posts.get("/", getPosts);
+router.get("/", getPosts);
 
 // get single post by id
-posts.get("/:id", getPostById);
+router.get("/:id", getPostById);
 
 // insert new post
-posts.post("/", putPost);
+router.post("/", createPost);
 
 // update a existing post
-posts.put("/:id", updatePostById);
+router.put("/:id", updatePostById);
 
 // remove post record from posts
-posts.delete("/:id", deletePost);
+router.delete("/:id", deletePost);
 
 module.exports = posts;
 

@@ -15,7 +15,7 @@ const posts = {
       data: post,
     });
   },
-  putPost: (req, res) => {
+  createPost: (req, res) => {
     const { id, title, body, userid, date } = req.body;
     data.push({ id, title, body, userid, date });
     res.json({
