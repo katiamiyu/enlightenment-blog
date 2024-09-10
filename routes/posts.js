@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const {getPosts, getPostById, updatePostById, createPost, deletePost} = require('../controllers/posts');
+const {getAllPosts, getPostById, updatePostById, createPost, deletePost} = require('../controllers/posts');
 
 // get all posts
-router.get("/", getPosts);
+router.get("/", getAllPosts);
 
 // get single post by id
 router.get("/:id", getPostById);
@@ -14,7 +14,7 @@ router.post("/", createPost);
 router.put("/:id", updatePostById);
 
 // remove post record from posts
-router.delete("/:id", deletePost);
+//router.delete("/:id", deletePost);
 
 module.exports = router;
 

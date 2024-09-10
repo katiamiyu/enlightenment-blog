@@ -1,4 +1,15 @@
-posts = [
+const {Schema, model} = require('mongoose');
+
+const postSchema = new Schema({
+  text: String,
+  dateCreated: Date,
+  dateUpdated: Date,
+});
+
+module.exports = model('Post', postSchema);
+
+
+/* posts = [
   {
     id: 1,
     title: "My life",
@@ -14,4 +25,4 @@ posts = [
     date: "13-08-1988"
   }
 ]
-module.exports = posts;
+module.exports = posts;*/

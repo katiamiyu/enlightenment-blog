@@ -1,47 +1,45 @@
-let data = require('../models/posts');
+const Post = require('../models/posts');
 
-const posts = {
-  getPosts: (req, res) => {
-    res.json({
-      status: 200,
-      data: data,
-    });
-  },
-  getPostById: (req, res) => {
-    const { id } = req.params;
-    const post = data.find((post) => post.id == id);
-    res.json({
-      status: 200,
-      data: post,
-    });
-  },
-  createPost: (req, res) => {
-    const { id, title, body, userid, date } = req.body;
-    data.push({ id, title, body, userid, date });
-    res.json({
-      status: 201,
-      data: data,
-    });
-  },
-  updatePostById: (req, res) => {
-    const { id } = req.params;
-    const post = data.find(post => post.id == id);
-    post.title = title || post.title;
-    post.body = body || post.body;
-    res.json({
-      status: 201,
-      data: data,
-    });
-  },
-  deletePost: (req, res) => {
-    const { id } = req.params;
-    const newposts = data.filter(post=>post.id != id);
-    data = newposts;
-      res.json({
-        status: 200,
-        data: data
-      });
+const getAllPosts = async (req, res) => {
+  try {
+    const data = await Post.find();
+    res.status(200).json({data});
+  } catch (error) {
+    res.status(500).json({msg: error});
   }
 }
 
-module.exports = posts;
+const getPostById = async (req, res) => {
+  try {
+    const {id: postId} = req.params;
+    const data = await Post.findById(postId);
+    res.status(200).json({data});
+  } catch (error) {
+    res.status(500).json({msg: error});
+  }
+}
+
+const createPost =  async (req, res) => {
+    try {
+      const {text} = req.body;
+      const newDate = new Date().toLocaleString();
+      const data = await Post.create({text, dateCreated: newDate, dateUpdated: newDate});
+      res.status(201).json({data});
+    } catch (error) {
+      res.status(500).json({msg: error});
+    }
+  };
+
+  const updatePostById = async (req, res) => {
+    try {
+      const {text} = req.body;
+      const updatedDate = new Date().toLocaleString();
+      const {id: postId} = req.params;
+      const data = await Post.findByIdAndUpdate(postId, {text: text, dateUpdated: updatedDate});
+      res.status(201).json({data});
+    } catch (error) {
+      res.status(500).json({msg: error});
+    }
+  }
+
+module.exports = {getAllPosts, getPostById, createPost, updatePostById};
